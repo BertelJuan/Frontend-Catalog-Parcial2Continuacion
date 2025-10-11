@@ -8,13 +8,25 @@ exports.handler = async (event) => {
         Key: "productos.xlsx"
     };
 
-    const file = await s3.getObject(params).promise();
-    const workbook = xlsx.read(file.Body);
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    const data = xlsx.utils.sheet_to_json(sheet);
-
-    return {
-        statusCode: 200,
-        body: JSON.stringify(data),
-    };
+    try {
+        
+        const file = await s3.getObject(params).promise();
+        const workbook = xlsx.read(file.Body);
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const data = xlsx.utils.sheet_to_json(sheet);
+    
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify(data),
+        };
+    } catch (error) {
+        console.error("Error procesando archivo: ", error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ error: "Error procesando archivo Excel"})
+        };
+    }
 };

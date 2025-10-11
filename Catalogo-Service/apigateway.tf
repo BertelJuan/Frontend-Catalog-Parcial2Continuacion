@@ -1,6 +1,18 @@
 resource "aws_apigatewayv2_api" "catalog_api" {
     name = "catalog-api"
     protocol_type = "HTTP"
+
+    cors_configuration {
+      allow_origins = ["*"]
+      allow_methods = ["GET", "POST", "OPTIONS"]
+      allow_headers = ["*"]
+    }
+}
+
+resource "aws_apigatewayv2_stage" "catalog_stage" {
+  api_id = aws_apigatewayv2_api.catalog_api.id
+  name = "prod"
+  auto_deploy = true
 }
 
 resource "aws_apigatewayv2_integration" "catalog_integration" {
