@@ -1,13 +1,111 @@
+/* ===== Estilos base ===== */
 body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background-color: #f6f8fa;
+  color: #222;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 20px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h2.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* ===== Tarjetas ===== */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  margin-bottom: 30px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ===== Botones ===== */
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+/* ===== Inputs ===== */
+.file-input {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.upload-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ===== Mensajes ===== */
+.upload-message {
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.upload-message.success {
+  color: #16a34a;
+}
+
+.upload-message.error {
+  color: #dc2626;
+}
+
+/* ===== Tabla ===== */
+.table-container {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  background: #fff;
+}
+
+.catalog-table th,
+.catalog-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.catalog-table th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+
+.catalog-table tr:hover {
+  background-color: #f9fafb;
+}
+
+/* ===== Placeholder ===== */
+.placeholder-text {
+  color: #6b7280;
+  font-style: italic;
+  margin-top: 12px;
+  font-size: 0.95rem;
 }

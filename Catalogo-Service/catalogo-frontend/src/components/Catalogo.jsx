@@ -11,30 +11,38 @@ export default function Catalogo() {
         if (data.length > 0) setColums(Object.keys(data[0]));
     };
 
-    return (
-    <div style={{ padding: "20px" }}>
-      <h2>Catálogo de Productos</h2>
-      <button onClick={loadCatalog}>Cargar Productos</button>
+   return (
+    <div className="card catalog-card">
+      <h2 className="card-title">Catálogo de Productos</h2>
+      <button className="btn-primary mb-2" onClick={loadCatalog}>
+        Cargar Productos
+      </button>
 
-      {catalog.length > 0 && (
-        <table border="1" cellPadding="5" style={{ marginTop: "10px" }}>
-          <thead>
-            <tr>
-              {columns.map((col) => (
-                <th key={col}>{col}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {catalog.map((item, i) => (
-              <tr key={i}>
+      {catalog.length > 0 ? (
+        <div className="table-container">
+          <table className="catalog-table">
+            <thead>
+              <tr>
                 {columns.map((col) => (
-                  <td key={col}>{item[col]}</td>
+                  <th key={col}>{col}</th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {catalog.map((item, i) => (
+                <tr key={i}>
+                  {columns.map((col) => (
+                    <td key={col}>{item[col]}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="placeholder-text">
+          No hay datos cargados aún. Haz clic en “Cargar Productos”.
+        </p>
       )}
     </div>
   );

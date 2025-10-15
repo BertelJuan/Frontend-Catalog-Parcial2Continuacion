@@ -1,0 +1,21 @@
+{
+  "name": "catalog-update",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.621.0",
+    "aws-sdk": "^2.1692.0",
+    "busboy": "^1.6.0",
+    "csv-parse": "^5.5.0",
+    "ioredis": "^5.8.1",
+    "redis": "^5.8.3",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -25,7 +25,8 @@ resource "aws_iam_role_policy" "lambda_s3_read_policy" {
                 Effect: "Allow"
                 Action = [
                     "s3:GetObject",
-                    "s3:ListBucket"
+                    "s3:ListBucket",
+                    "s3:PutObject"
                 ]
                 Resource = [
                     "arn:aws:s3:::catalogo-datos-bucket",
@@ -34,4 +35,10 @@ resource "aws_iam_role_policy" "lambda_s3_read_policy" {
             }
         ]
     })
+}
+
+resource "aws_iam_role_policy_attachment" "lambda_vpc_access" {
+  role       = aws_iam_role.lambda_exec_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+  
 }

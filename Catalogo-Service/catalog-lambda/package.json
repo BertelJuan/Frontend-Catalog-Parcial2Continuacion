@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "xlsx": "^0.18.5",
-    "aws-sdk": "^2.1430.0"
+    "aws-sdk": "^2.1430.0",
+    "redis": "^5.8.3",
+    "xlsx": "^0.18.5"
   }
 }
